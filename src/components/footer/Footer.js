@@ -9,7 +9,7 @@ const Footer = ({ btnText, onClick, dir }) => {
 
     const openManual = () => {
         console.log("HOLA");
-        const newWindow = window.open(`${dir}`, "_blank", "noopener,noreferrer");
+        const newWindow = window.open("https://github.com/JhousefSilva1/algoritmos2-2023", "_blank", "noopener,noreferrer");
         if(newWindow) {
             newWindow.opener = null;
         }
@@ -21,7 +21,7 @@ const Footer = ({ btnText, onClick, dir }) => {
             <div>
                 <div className="footer">
                     <div className="button-container">
-                        {<Button text="Manual de Usuario" onClick={openManual}/>}
+                        {<Button text="Repo gitHub" onClick={openManual}/>}
                         <Button text={btnText} onClick={onClick}/>
                         {/* <Button text="Contáctanos" onClick={redirectToContactUs}/> */}
                     </div>
@@ -34,7 +34,7 @@ const Footer = ({ btnText, onClick, dir }) => {
             <div>
                 <div className="footer">
                     <div className="button-container">
-                        {<Button text="Manual de Usuario" onClick={openManual}/>
+                        {<Button text="Repo gitHub" onClick={openManual}/>
                         /*<Button text="Contáctanos" onClick={redirectToContactUs}/> */}
                     </div>
                 </div>
