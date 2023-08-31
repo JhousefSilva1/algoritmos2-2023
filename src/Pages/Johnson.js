@@ -20,16 +20,17 @@ import { setDisplay } from "../redux/actions/modalStyle";
 
 import "../Styles/johnson.css";
 
+// Importar la librería cytoscape y el módulo 'popper'
 cytoscape.use(popper);
 
 const Johnson = () => {
+    // Utilizar hooks de Redux para obtener datos del estado global
     const dispatch = useDispatch();
     const currentIndex = useSelector((state) => state.currentIndex);
     const data = useSelector((state) => state.cytoscapeData[currentIndex]);
 
     const onClick = () => {
-        // ejecutar algoritmo
-        // console.log();
+        // Ejecutar algoritmo y actualizar el estado global
         const { adjacencyMatrix, indexes } = generateMatrix(data.elements);
         dispatch(setAdjacencyMatrix(adjacencyMatrix));
         dispatch(setMatrixLabels(Array.from(indexes)));
@@ -39,8 +40,7 @@ const Johnson = () => {
         const johnsonData = johnsonsAlgorithm({ adjacencyMatrix, indexes });
         console.log(johnsonData);
 
-        //No se si es valido pero funca
-        //generamos un cy con los valores obtenidos del estado
+        // Crear instancia de cytoscape y agregar elementos al gráfico
         const cy = cytoscape({
             container: document.getElementById("cy"),
             style: data.style,
@@ -62,8 +62,10 @@ const Johnson = () => {
             }
         }
 
-        // generar poppers
+        // Funciones para crear poppers en nodos y aristas
         const makePopperNode = (node, earlyStart, latestFinish, isCritical) => {
+            // Crear y mostrar el popper en el nodo
+            // Contiene información de si es crítico
             const popper = node.popper({
                 content: () => {
                     const div = document.createElement("div");
@@ -85,8 +87,10 @@ const Johnson = () => {
             });
             return popper;
         };
-
+        
         const makePopperEdge = (edge, value) => {
+            // Crear y mostrar el popper en la arista
+            // Contiene información del valor 'h'
             const popper = edge.popper({
                 content: () => {
                     const div = document.createElement("div");
@@ -153,11 +157,11 @@ const Johnson = () => {
             },
         });
     };
-
+    // Renderización del componente
     return (
         <div className="container">
             <Modal />
-            <Header logo="/img/latam_logo.png" />
+            <Header title="Algoritmo Johnson"/>
             <Graph />
             <Toolbar />
             <Footer btnText="Ejecutar Algoritmo de Johnson" onClick={onClick} dir="/doc.pdf"/>

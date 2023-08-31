@@ -129,20 +129,6 @@ const Toolbar = () => {
             <button title="Rehacer" onClick={redoAction}>
                 <label>Rehacer</label>
             </button>&nbsp;&nbsp;&nbsp;
-            <button title="Guardar" onClick={exportToJSON}>
-                <label>Guardar</label>
-            </button>&nbsp;&nbsp;&nbsp;
-            <button title="Importar" onClick={importFromJSON}>
-                <label>Importar</label>
-                <input
-                    ref={inputRef}
-                    type="file"
-                    name="file"
-                    className="input--hidden"
-                    onChange={fileChange}
-                    accept="text/json"
-                />
-            </button>&nbsp;&nbsp;&nbsp;
         </div>
     );
 };
