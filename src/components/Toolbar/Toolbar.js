@@ -107,27 +107,41 @@ const Toolbar = () => {
                 onClick={setNode}
                 className={nodeSelected ? "selected" : ""}
             >
-                <label>Agregar Nodo</label>
+                <label><span style={{ fontSize: '24px' }}>➕</span> Agregar Nodo</label>
             </button>&nbsp;&nbsp;&nbsp;
             <button
                 title="Agregar arista"
                 onClick={setEdge}
                 className={edgeSelected ? "selected" : ""}
             >
-                <label>Agregar Arista</label>
+                <label><span style={{ fontSize: '24px' }}>➕</span> Agregar Arista</label>
             </button>&nbsp;&nbsp;&nbsp;
             <button
                 title="Borrar elemento"
                 onClick={setEraser}
                 className={eraserSelected ? "selected" : ""}
             >
-                <label>Borrar Nodo</label>
+                <label><span style={{ fontSize: '24px' }}>🗑️</span> Borrar Nodo</label>
             </button>&nbsp;&nbsp;&nbsp;
             <button title="Deshacer" onClick={undoAction}>
-                <label>Deshacer</label>
+                <label><span style={{ fontSize: '24px' }}>↩️</span> Deshacer</label>
             </button>&nbsp;&nbsp;&nbsp;
             <button title="Rehacer" onClick={redoAction}>
-                <label>Rehacer</label>
+                <label><span style={{ fontSize: '24px' }}>↪️</span> Rehacer</label>
+            </button>&nbsp;&nbsp;&nbsp;
+            <button title="Guardar" onClick={exportToJSON}>
+                <label><span style={{ fontSize: '24px' }}>💾</span> Guardar</label>
+            </button>&nbsp;&nbsp;&nbsp;
+            <button title="Importar" onClick={importFromJSON}>
+                <label><span style={{ fontSize: '24px' }}>📂</span> Importar</label>
+                <input
+                    ref={inputRef}
+                    type="file"
+                    name="file"
+                    className="input--hidden"
+                    onChange={fileChange}
+                    accept="text/json"
+                />
             </button>&nbsp;&nbsp;&nbsp;
         </div>
     );
